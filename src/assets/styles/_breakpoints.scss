@@ -1,0 +1,65 @@
+// Query variables
+$bp-xs: 24em;
+$bp-gt-xs: 29.75em;
+$bp-sm: 39.8em;
+$bp-gt-sm: 46.8em;
+$bp-md: 48em;
+$bp-gt-md: 50em;
+$bp-lg: 54.5em;
+$bp-gt-lg: 60em;
+$bp-xl: 67em;
+
+// Query breakpoints
+@mixin bp-xs {
+  @media only screen and (min-width: $bp-xs) {
+    @content;
+  }
+}
+
+@mixin bp-gt-xs {
+  @media only screen and (min-width: $bp-gt-xs) {
+    @content;
+  }
+}
+
+@mixin bp-sm {
+  @media only screen and (min-width: $bp-sm) {
+    @content;
+  }
+}
+
+@mixin bp-gt-sm {
+  @media only screen and (min-width: $bp-gt-sm) {
+    @content;
+  }
+}
+
+@mixin bp-md {
+  @media only screen and (min-width: $bp-md) {
+    @content;
+  }
+}
+
+@mixin bp-gt-md {
+  @media only screen and (min-width: $bp-gt-md) {
+    @content;
+  }
+}
+
+@mixin bp-lg {
+  @media only screen and (min-width: $bp-lg) {
+    @content;
+  }
+}
+
+@mixin bp-gt-lg {
+  @media only screen and (min-width: $bp-gt-lg) {
+    @content;
+  }
+}
+
+@mixin bp-xl {
+  @media only screen and (min-width: $bp-gt-xl) {
+    @content;
+  }
+}

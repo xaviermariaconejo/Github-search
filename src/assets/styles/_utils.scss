@@ -1,0 +1,77 @@
+// Em function helper
+$browser-context: 16;
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+
+// Mixins
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin background-image($imgpath1, $imgpath2, $imgpath3, $attachment: scroll, $position: center center, $repeat: no-repeat) {
+  background: {
+    image: url($imgpath1);
+    image: -webkit-image-set(
+      $imgpath1 1x,
+      $imgpath2 2x,
+      $imgpath3 3x
+    );
+    image: image-set(
+      $imgpath1 1x,
+      $imgpath2 2x,
+      $imgpath3 3x
+    );
+    attachment: $attachment;
+    position: $position;
+    repeat: $repeat;
+    size: cover;
+  }
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+@mixin transition($args) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin transform($args) {
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -ms-transform: $args;
+  -o-transform: $args;
+  transform: $args;
+}
