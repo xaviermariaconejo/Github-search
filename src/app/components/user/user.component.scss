@@ -1,0 +1,80 @@
+@import 'general';
+
+.top-info {
+  width: 100%;
+  height: auto;
+  margin-bottom: 40px;
+  .user-image-profile {
+    width: 20%;
+    height: auto;
+    border-radius: 5px;
+  }
+  .user-name {
+    width: 70%;
+    height: auto;
+    .title {
+      text-transform: none;
+    }
+  }
+}
+
+.middle-info {
+  width: 100%;
+  height: auto;
+  margin-bottom: 40px;
+  @include bp-md {
+    height: 270px;
+    @include bp-lg {
+      height: 220px;
+    }
+  }
+  flex-wrap: wrap;
+  p {
+    width: 100%;
+    @include bp-md {
+      width: 45%;
+    }
+    height: auto;
+    color: $text-color;
+    font-size: 1.2em;
+    line-height: 1.4em;
+    margin: 5px;
+    .info {
+      color: $info-color;
+      font-style: italic;
+    }
+    a {
+      background-color: transparent;
+      text-decoration: none;
+      &:link,
+      &:visited,
+      &:active {
+          color: $info-color;
+          background-color: transparent;
+          text-decoration: underline;
+      }
+      @include hover {
+        color: $link-hover;
+        cursor: pointer;
+        background-color: transparent;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.bottom-info {
+  .followers-list {
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    li {
+      margin: 4px;
+    }
+  }
+  .repositories-list {
+    flex-wrap: wrap;
+    li {
+      margin: 4px;
+    }
+  }
+}

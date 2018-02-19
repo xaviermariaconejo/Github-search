@@ -1,3 +1,36 @@
-<p>
-  user works!
-</p>
+<section class="content" *ngIf="user">
+  <article class="top-info" fxLayout="row" fxLayoutAlign="space-between center">
+    <img class="user-image-profile" [src]="user.imgProfile" alt="{{user.loginName}}'s profile image'"/>
+    <section class="user-name" fxLayout="column" fxLayoutAlign="center center">
+      <h1 class="title">{{user.loginName}}</h1>
+      <h2 class="sub-title">{{user.name}}</h2>
+    </section>
+  </article>
+
+  <article class="middle-info" fxLayout="column" fxLayoutAlign="start space-between">
+    <p>Location: <span class="info">{{user.location}}</span></p>
+    <p>Company: <span class="info">{{user.company}}</span></p>
+    <p>User created at: <span class="info">{{user.createdAt}}</span></p>
+    <p>User last updated: <span class="info">{{user.updatedAt}}</span></p>
+    <p>User's Github page: <a class="info" [href]="user.htmlUrl" target="_blank" title="User's Github page">{{user.htmlUrl}}</a></p>
+    <p>User's total followers number: <span class="info">{{user.followersCount}}</span></p>
+    <p>User's total following number: <span class="info">{{user.followingCount}}</span></p>
+    <p>User's total public gists number: <span class="info">{{user.publicGistsCount}}</span></p>
+    <p>User's total public repositories number: <span class="info">{{user.publicReposCount}}</span></p>
+  </article>
+
+  <article class="bottom-info">
+    <h3>Followers</h3>
+    <ul class="followers-list" fxLayout="row" fxLayoutAlign="start center">
+      <li *ngFor="let follower of user.followersList">
+        <a [href]="follower.htmlUrl" target="_blank" title="{{follower.loginName}}'s github page'">{{follower.loginName}}</a>
+      </li>
+    </ul>
+    <h3>Repositories</h3>
+    <ul class="repositories-list" fxLayout="row" fxLayoutAlign="start center">
+      <li *ngFor="let repo of user.publicReposList">
+        <a [href]="repo.html_url" target="_blank" title="{{repo.name}}'s github page">{{repo.name}}</a>
+      </li>
+    </ul>
+  </article>
+</section>

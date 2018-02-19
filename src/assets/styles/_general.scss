@@ -1,0 +1,74 @@
+@import 'utils';
+@import 'colors';
+@import 'breakpoints';
+
+:host {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 1;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  @include bp-sm {
+    font-size: 2em;
+    @include bp-md {
+      font-size: 3em;
+      font-weight: 800;
+      @include bp-lg {
+        font-size: 4em;
+      }
+    }
+  }
+}
+
+h2 {
+  text-align: center;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  font-size: 1em;
+  @include bp-sm {
+    font-size: 1.4em;
+    @include bp-md {
+      font-size: 2.4em;
+      font-weight: 400;
+      @include bp-lg {
+        font-size: 3.4em;
+      }
+    }
+  }
+}
+
+h3 {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  @include bp-sm {
+    font-size: 1.6em;
+    @include bp-md {
+      font-size: 2.6em;
+    }
+  }
+}
+
+.content {
+  width: 100%;
+  max-width: 980px;
+  padding: 40px 20px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}

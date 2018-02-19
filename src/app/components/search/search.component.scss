@@ -1,0 +1,96 @@
+@import 'general';
+@import 'alerts';
+
+.input-section {
+  width: 100%;
+  height: auto;
+  margin-bottom: 25px;
+  .label-text {
+    font-weight: 600;
+    font-size: 1.25em;
+    margin-bottom: 5px;
+  }
+  .input-text {
+    width: 100%;
+  }
+  .alert {
+    width: 100%;
+  }
+}
+
+.item-container {
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  will-change: opacity;
+  .item-content {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border: 1px solid $item-border;
+    border-radius: 5px;
+    &:not(:last-of-type) {
+      margin-bottom: 15px;
+    }
+    @include hover {
+      cursor: pointer;
+      box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.36);
+      background-color: $item-hover;
+    }
+    .user-image-profile {
+      width: 20%;
+      height: auto;
+      border: 1px solid $item-border;
+      border-radius: 5px;
+    }
+    .user-login-name {
+      width: 80%;
+      height: auto;
+      font-weight: 600;
+      font-size: 1.4em;
+    }
+  }
+}
+
+.pagination {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 40px;
+  li {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    &.disabled > a {
+      @include hover {
+        cursor: not-allowed;
+      }
+    }
+    a {
+      color: $text-black;
+      padding: 8px 16px;
+      border: 1px solid $text-border;
+      border-radius: 5px;
+      @include unable-user-select();
+      &.active {
+        background-color: $pagination-active;
+        color: $white;
+        border: 1px solid $pagination-active;
+      }
+      @include hover {
+        cursor: pointer;
+        &:not(.active) {
+          background-color: $text-border;
+        }
+      }
+    }
+  }
+}

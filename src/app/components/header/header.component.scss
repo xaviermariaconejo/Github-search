@@ -1,0 +1,38 @@
+@import 'utils';
+@import 'colors';
+@import 'zindex';
+
+:host {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 1;
+}
+
+h3 {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+.content {
+  width: 100%;
+  max-width: 980px;
+  height: auto;
+  padding: 40px 20px 0 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  .navigation-container {
+    width: auto;
+    height: auto;
+    .navigation-button {
+      margin: 2px;
+    }
+  }
+}

@@ -1,3 +1,37 @@
-<p>
-  search works!
-</p>
+<section class="content">
+  <h1 class="title">Github search</h1>
+
+  <section class="input-section" fxLayout="column" fxLayoutAlign="start start">
+    <label for="nameToSearch" class="label-text">User name</label>
+    <input type="text" class="input-text" required
+           id="nameToSearch" name="nameToSearch"
+           #nameToSearch (input)="updateInputText(nameToSearch.value)"/>
+    <div [hidden]="errorText === ''" class="alert alert-error">{{errorText}}</div>
+  </section>
+
+<section class="item-container" *ngIf="pagedUsers && pagedUsers.length > 0" [@fadeInOutItems] fxLayout="column" fxLayoutAlign="start center">
+   <article class="item-content" (click)="selectUser(user.loginName)" *ngFor="let user of pagedUsers"
+            fxLayout="row" fxLayoutAlign="start center">
+     <img class="user-image-profile" [src]="user.imgProfile" alt="{{user.loginName}}'s profile image'"/>
+     <p class="user-login-name" fxLayout="row" fxLayoutAlign="center center">{{user.loginName}}</p>
+   </article>
+ </section>
+
+ <ul *ngIf="pager && pager.pages && pager.pages.length" class="pagination">
+   <li [ngClass]="{disabled: pager.currentPage === 1}">
+     <a (click)="setPage(1)">First</a>
+   </li>
+   <li [ngClass]="{disabled: pager.currentPage === 1}">
+     <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+   </li>
+   <li *ngFor="let page of pager.pages">
+     <a [ngClass]="{active: pager.currentPage === page}" (click)="setPage(page)">{{page}}</a>
+   </li>
+   <li [ngClass]="{disabled: pager.currentPage === pager.totalPages}">
+     <a (click)="setPage(pager.currentPage + 1)">Next</a>
+   </li>
+   <li [ngClass]="{disabled: pager.currentPage === pager.totalPages}">
+     <a (click)="setPage(pager.totalPages)">Last</a>
+   </li>
+ </ul>
+</section>
